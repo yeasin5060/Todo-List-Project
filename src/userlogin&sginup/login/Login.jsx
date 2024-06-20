@@ -51,7 +51,7 @@ const Login = () => {
                     if(userCredential.user.emailVerified){ //check email verified
                         localStorage.setItem("user" , JSON.stringify(userCredential.user))
                         dispatch (userdata(userCredential.user))
-                        navigate("home")
+                        navigate("/homepage")
                      }else{
                         signOut(auth).then(() => {
                             setSendError({email:"Please verify your email"})

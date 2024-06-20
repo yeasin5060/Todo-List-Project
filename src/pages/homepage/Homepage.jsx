@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './Homepage.css'
 import Heads from '../../utilities/Heads'
+import { getDatabase, ref, onValue , set , push ,remove } from "firebase/database";
 
 const Homepage = () => {
+    const db = getDatabase();
     let [todo , setTodo] = useState({
         todo : ""
     })
@@ -11,7 +13,12 @@ const Homepage = () => {
         setTodo({...todo , [name]:value})
     }
     let handleAdd = ()=>{
-       console.log(todo);
+        set(ref(db, 'usertodo/'), {
+           todolist : todo
+        });
+        alert("todo  Succesful")
+        console.log()
+    
     }
   return (
    <section id='home-page'>
