@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import './Homepage.css'
 import Heads from '../../utilities/Heads'
 import { getDatabase, ref, onValue , set , push ,remove } from "firebase/database";
+import { useSelector } from 'react-redux';
 
 const Homepage = () => {
     const db = getDatabase();
+    const tododata = useSelector((state) => state.userdata.value)
+    console.log(tododata);
     let [todo , setTodo] = useState({
         todo : ""
     })

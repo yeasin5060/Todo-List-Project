@@ -11,8 +11,8 @@ import './Login.css'
 import Button from '../../components/button/Button'
 const Login = () => {
     const auth = getAuth();
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
                 //this useState recive the login data
     const [loginData , setLoginData] = useState({
         email : "",
