@@ -27,6 +27,7 @@
     border-radius: 50%;
     overflow: hidden;
     background: #000;
+    cursor: pointer;
 }
 .navbar-profile-image-box img{
     width: 100%;

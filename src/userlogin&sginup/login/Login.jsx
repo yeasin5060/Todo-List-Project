@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Subhead from '../../utilities/Subhead'
 import Pera from '../../utilities/Pera'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import googlelogo from '../../images/google.svg'
 import musicimg from '../../images/login-music-img.jpeg'
 import { getAuth, signInWithEmailAndPassword ,signOut} from "firebase/auth";
@@ -51,7 +52,7 @@ const Login = () => {
                     if(userCredential.user.emailVerified){ //check email verified
                         localStorage.setItem("user" , JSON.stringify(userCredential.user))
                         dispatch (userdata(userCredential.user))
-                        navigate("/homepage")
+                        navigate("homepage")
                      }else{
                         signOut(auth).then(() => {
                             setSendError({email:"Please verify your email"})
