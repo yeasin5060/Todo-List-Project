@@ -33,7 +33,7 @@ const Homepage = () => {
         onValue(userparsonalTodoRef , (snapshot) => {
             let array = []
             snapshot.forEach((item) => {
-                if(tododata.uid !== item.key){
+                if(tododata.uid == item.key){
                     array.push({...item.val() , id:item.key})
                 }
             })
@@ -41,10 +41,10 @@ const Homepage = () => {
         })
 
     },[])
-    let handleAdd = ()=>{
-        set(push(ref(db , 'parsonalTodo')) , {
+    let handleAdd = (id)=>{
+        set(push(ref(db , 'parsonalTodo/' + id)) , {
             todos : todo
-        })
+    })
         setTodo("")
         alert("todo send Succesful")
     }
@@ -66,7 +66,7 @@ const Homepage = () => {
                 todoList &&
                 todoList.map((item , index) => (
                      <div key={index} className='home-page-add-btn-box'>
-                        <button onClick={handleAdd} className='home-page-btn'>Add</button>
+                        <button onClick={() =>handleAdd(item.id)} className='home-page-btn'>Add</button>
                     </div>
                 ))
                }
